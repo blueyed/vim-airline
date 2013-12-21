@@ -74,6 +74,9 @@ function! airline#parts#filetype()
 endfunction
 
 function! airline#parts#ffenc()
-  return printf('%s%s', &fenc, strlen(&ff) > 0 ? '['.&ff.']' : '')
+  " TODO: get and compare to the default of &ff/&fenc?
+  let fenc = &fenc != 'utf-8' ? &fenc : ''
+  let ff = strlen(&ff) > 0 && &ff != 'unix' ? '['.&ff.']' : ''
+  return printf('%s%s', fenc, ff)
 endfunction
 
