@@ -57,9 +57,11 @@ function! airline#extensions#tabline#tabs#get()
       if type(s:tab_nr_type) == type('')
         let val .= substitute(s:tab_nr_type, '__tabnr__', i, 'g')
       elseif s:tab_nr_type == 0
-        let val .= ' %{len(tabpagebuflist('.i.'))}'
-      else
+        let val .= (g:airline_symbols.space).'%{len(tabpagebuflist('.i.'))}'
+      elseif s:tab_nr_type == 1
         let val .= (g:airline_symbols.space).i
+      else "== 2
+        let val .= (g:airline_symbols.space).i.'.%{len(tabpagebuflist('.i.'))}'
       endif
     endif
     call b.add_section(group, val.'%'.i.'T %{airline#extensions#tabline#title('.i.')} %)')
