@@ -96,7 +96,7 @@ else
     let g:airline#themes#base16#palette.visual = airline#themes#generate_color_map(s:V1, s:V2, s:V3)
     let g:airline#themes#base16#palette.visual_modified = g:airline#themes#base16#palette.normal_modified
 
-    let s:IA = airline#themes#get_highlight2(['NonText', 'fg'], ['CursorLine', 'bg'])
+    let s:IA = airline#themes#get_highlight2(['Normal', 'bg'], ['VertSplit', 'bg'], '')
     let g:airline#themes#base16#palette.inactive = airline#themes#generate_color_map(s:IA, s:IA, s:IA)
     let g:airline#themes#base16#palette.inactive_modified = {
           \ 'airline_c': [ group[0], '', group[2], '', '' ]
