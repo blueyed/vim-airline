@@ -81,6 +81,6 @@ function! airline#parts#ffenc()
   " TODO: get and compare to the default of &ff/&fenc?
   let fenc = &fenc != 'utf-8' ? &fenc : ''
   let ff = strlen(&ff) > 0 && &ff != 'unix' ? '['.&ff.']' : ''
-  return printf('%s%s', fenc, ff)
+  return printf('%s%s%s', fenc, &l:bomb ? '[BOM]' : '', ff)
 endfunction
 
